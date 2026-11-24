@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Smoke test') {
       steps {
-        sh 'sleep 3 && docker exec frontend wget -qO- http://localhost/ | grep -q "Todo App"'
+        sh 'sleep 3 && docker exec frontend wget -qO- http://127.0.0.1/ | grep -q "Todo App"'
       }
     }
   }
