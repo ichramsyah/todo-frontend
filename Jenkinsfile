@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    IMAGE = 'todo-frontend:latest'
-    DEPLOY_DIR = '/opt/todo-app'
+    IMAGE = 'frontend:latest'
+    DEPLOY_DIR = '/opt/application'
   }
   stages {
     stage('Checkout') {
@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Smoke test') {
       steps {
-        sh 'sleep 3 && docker exec todo-frontend wget -qO- http://localhost/ | grep -q "Todo App"'
+        sh 'sleep 3 && docker exec frontend wget -qO- http://localhost/ | grep -q "Todo App"'
       }
     }
   }
